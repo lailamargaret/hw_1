@@ -63,7 +63,7 @@ int main() {
 
 
 	//int user_hand_value = user.get_hand_value();
-	if (user.get_hand_value < 7.5) {
+	if (user.get_hand_value() < 7.5) {
 		char ask_hit;
 		cout << "Would you like another card? (Type y/n): ";
 		cin >> ask_hit;
@@ -73,9 +73,30 @@ int main() {
 			user.print_hand();
 			cout << "Your total is now " << user.get_hand_value() << endl;
 			cout << endl;
-			cout << "Would you like another card? (Type y/n): ";
-			cin >> ask_hit;
+			if (user.get_hand_value() >= 7.5)
+				break;
+			else {
+				cout << "Would you like another card? (Type y/n): ";
+				cin >> ask_hit;
+			}
 		}
+	}
+
+	//Player busts
+	if (user.get_hand_value() > 7.5) {
+		cout << "You busted.\n";
+	}
+
+	//Dealer draws
+	while (dealer.get_hand_value() < 5.5) {
+		cout << "\nThe dealer draws a new card.\n\n";
+		dealer.hit();
+		cout << "The dealer has: \n";
+		dealer.print_hand();
+		cout << "The dealer's total is " << dealer.get_hand_value() << endl;
+		cout << endl;
+		if (dealer.get_hand_value() > 7.5)
+			cout << "The dealer busted.\n";
 	}
 
 	return 0;
