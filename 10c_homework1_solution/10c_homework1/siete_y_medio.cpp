@@ -58,7 +58,7 @@ int main() {
 	user.print_hand();
 	cout << endl;
 
-
+	cout << "Hand value: " << user.get_hand_value() << endl;
 
 	return 0;
 }

@@ -46,7 +46,7 @@ public:
 	// Converts card rank to number.
 	// The possible returns are: 1, 2, 3, 4, 5, 6, 7, 10, 11 and 12
 	int get_rank() const;
-	int get_value()const;
+	double get_value()const;
 
 	// Compare rank of two cards. E.g: Eight<Jack is true.
 	// Assume Ace is always 1. 
@@ -64,12 +64,6 @@ class Hand {
 public:
 	// A vector of Cards
 	Hand();
-
-	
-	double get_hand_total();
-
-	
-
 	vector<Card> myCards;
 	//int hand_value;
 
@@ -88,6 +82,7 @@ public:
 		for (int i = 0; i < myHand.myCards.size(); ++i)
 			cout << myHand.myCards[i].get_spanish_rank() << " of " << myHand.myCards[i].get_spanish_suit() << "\n";
 	}
+	double get_hand_value();
 
 
 private:
