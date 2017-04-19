@@ -45,7 +45,7 @@ Card::Card() {
 	}
 
 	if (rank != SOTA && rank != CABALLO && rank != REY)
-		value = rank;
+		value = rank + 1;
 	else
 		value = .5;
 }
@@ -177,7 +177,7 @@ int Card::get_rank() const {
 	return static_cast<int>(rank) + 1;
 }
 
-int Card::get_value() const
+double Card::get_value() const
 {
 	return value;
 }
@@ -204,11 +204,11 @@ void Player::hit()
 	myHand.myCards.push_back(Card());
 }
 
-double Hand::get_hand_total()
+double Player::get_hand_value()
 {
-	int total = 0;
-	for (size_t i = 0; i < myCards.size(); ++i)
-		total += myCards[i].get_value();
+	double total = 0;
+	for (int i = 0; i < myHand.myCards.size(); ++i)
+		total += myHand.myCards[i].get_value();
 	return total;
 }
 
