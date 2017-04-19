@@ -35,13 +35,29 @@ int main() {
 	Player user(100);
 	std::cout << "You have $" << user.money << endl;
 
+	//establish the bet
 	int bet = 0;
 	cout << "Enter your bet: $";
 	cin >> bet;
 	while (bet > user.money) {
 		cout << "Please enter a bet that is less than or equal to your current total ($" << user.money << "). \nEnter your bet: $";
 		cin >> bet;
+		cout << endl;
 	}
+
+	//Start playing the game
+	Player dealer(900);
+	dealer.hit();
+	
+	cout << "\nThe dealer has: \n";
+	dealer.print_hand();
+	cout << endl;
+
+	user.hit();
+	cout << "Your card is: \n";
+	user.print_hand();
+	cout << endl;
+
 
 
 	return 0;

@@ -199,9 +199,9 @@ Hand::Hand()
 	myCards;
 }
 
-void Hand::hit()
+void Player::hit()
 {
-	myCards.push_back(Card());
+	myHand.myCards.push_back(Card());
 }
 
 double Hand::get_hand_total()

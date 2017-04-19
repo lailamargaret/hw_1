@@ -65,15 +65,11 @@ public:
 	// A vector of Cards
 	Hand();
 
-	void hit();
+	
 	double get_hand_total();
 
-	//void print() {
-	//	for (int i = 0; i < 5; ++i)
-	//		cout << myCards[i].get_spanish_rank() << " of " << myCards[i].get_spanish_suit() << endl;
-	//}
+	
 
-private:
 	vector<Card> myCards;
 	//int hand_value;
 
@@ -86,10 +82,17 @@ public:
 	//Assigns initial amount of money
 	Player(int m);
 	int money;
+	Hand myHand;
+	void hit();
+	void print_hand() {
+		for (int i = 0; i < myHand.myCards.size(); ++i)
+			cout << myHand.myCards[i].get_spanish_rank() << " of " << myHand.myCards[i].get_spanish_suit() << "\n";
+	}
+
 
 private:
 
-	Hand myHand;
+	
 };
 
 #endif
