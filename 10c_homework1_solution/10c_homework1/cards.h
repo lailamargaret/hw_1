@@ -84,6 +84,8 @@ public:
 	}
 	double get_hand_value();
 
+	void clear_hand();
+
 
 private:
 

@@ -212,6 +212,11 @@ double Player::get_hand_value()
 	return total;
 }
 
+void Player::clear_hand(){
+	for (int i = 0; i < myHand.myCards.size(); ++i)
+		myHand.myCards.pop_back();
+}
+
 
 /* *************************************************
 Player class
